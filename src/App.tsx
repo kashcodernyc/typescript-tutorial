@@ -1,13 +1,9 @@
 import './App.css';
-import { Greet } from './components/Greet';
-import { Person } from './components/Person';
-import { PersonList } from './components/PersonList';
-import { Status } from './components/Status';
-import { Heading } from './components/Heading';
-import { Oscar } from './components/Oscar';
-import { Button } from './components/Button';
-import { Input } from './components/Input';
-import { Container } from './components/Container';
+import { Counter } from './components/state/Counter';
+import {ThemeContextProvider } from './components/context/ThemeContext';
+import { Box } from './components/context/Box';
+import { UserContextProvider } from './components/context/UserContext';
+import { User } from './components/context/User';
 
 function App() {
   const personName = {
@@ -32,19 +28,9 @@ function App() {
   ]
   return (
     <div className="App">
-      <Greet isLoggedIn={false} name='Prakash'/>
-      <Person name={personName}/>
-      <PersonList names = {nameList} />
-      <Status status='loading'/>
-      <Heading>Text</Heading>
-      <Oscar>
-        <Heading>oscar goes to prakash subbba</Heading>
-      </Oscar>
-      <Button handleClick={(event, id) => {
-        console.log('Button clicked', event, id);
-      }} />
-      <Input value='' handleChange={(event) => console.log(event)} />
-      <Container styles={{border: '1px solid black', padding: '1rem'}} />
+      <UserContextProvider>
+        <User/>
+      </UserContextProvider>
     </div>
   );
 }
