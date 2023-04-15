@@ -10,7 +10,6 @@ export const List = <T extends { id: number}>({ items, onClick }: ListProps<T>) 
             {items.map((item, index) => {
                 return(
                     <div key={item.id} onClick={() => onClick(item)}>
-                        {item}
                     </div>
                 )
             })}
